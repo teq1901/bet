@@ -1,10 +1,12 @@
 import random
 
 repeat = "y"
+rounds = int(input("How many rounds do you want to play? "))
 max = 4
 win = lose = 0
 
-for i in range(5):
+for i in range(rounds):
+    print(f"Round {i+1}")
     #generate a random number
     num = random.randint(1, max)
     guess= int(input(f"Guess a number between 1 and {max}: "))
