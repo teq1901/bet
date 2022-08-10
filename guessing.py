@@ -10,6 +10,9 @@ for i in range(rounds):
     #generate a random number
     num = random.randint(1, max)
     guess= int(input(f"Guess a number between 1 and {max}: "))
+    while guess < 1 or guess > max: 
+        guess= int(input(f"invalid number entered. Number must be between 1 and {max}: "))   
+
     if guess == num:
         print("Yay!! you've guessed the right number!")
         win += 1
