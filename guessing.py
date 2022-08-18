@@ -14,7 +14,7 @@ while not valid_rounds:
         rounds = input (f"it must be positve numbers only: ")
 
 print(f"You have {rounds} rounds to play")
-max = 4
+max = 5
 win = lose = 0
 
 
@@ -33,13 +33,21 @@ for i in range(rounds):
                 guess= input(f"invalid number entered. Number must be between 1 and {max}: ")   
         else: 
             guess = input (f"only numbers between 1 and {max} is allowed. Please enter a number: ")
+    
+
+    
+    while guess != num:
+
+        if guess > num:
+            guess = int(input(f"try again, guess lower: "))
+            lose +=1
+        else:
+            guess = int(input(f"try again guess higher: "))
+            lose +=1
+
     if guess == num:
         print("Yay!! you've guessed the right number!")
         win += 1
-    else:
-        print(f"Sorry wrong guess. The correct number was {num}")
-        lose +=1
-
-    # repeat = input("Do you want to try again? y/n: ")
+# repeat = input("Do you want to try again? y/n: ")
 
 print(f"You won {win} times and lost {lose} times")
