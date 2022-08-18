@@ -1,7 +1,18 @@
 import random
 
 repeat = "y"
-rounds = int(input("How many rounds do you want to play? "))
+rounds = input("How many rounds do you want to play? ")
+valid_rounds = False
+while not valid_rounds:
+    if rounds.isnumeric():
+        rounds = int (rounds)
+        if rounds>= 1:
+            valid_rounds = True 
+        else:
+            rounds= input(f"invalid number entered. Number must be between 1 or more: ")   
+    else: 
+        rounds = input (f"it must be positve numbers only: ")
+
 print(f"You have {rounds} rounds to play")
 max = 4
 win = lose = 0
