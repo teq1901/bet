@@ -15,7 +15,7 @@ while not valid_rounds:
 
 print(f"You have {rounds} rounds to play")
 max = 5
-win = lose = 0
+score = 0
 
 
 for i in range(rounds):
@@ -40,14 +40,15 @@ for i in range(rounds):
 
         if guess > num:
             guess = int(input(f"try again, guess lower: "))
-            lose +=1
+            score -=2
         else:
             guess = int(input(f"try again guess higher: "))
-            lose +=1
+            score -=2
 
     if guess == num:
         print("Yay!! you've guessed the right number!")
-        win += 1
-# repeat = input("Do you want to try again? y/n: ")
+        score += max
 
-print(f"You won {win} times and lost {lose} times")
+    print(f"your score is now {score} ")
+
+print(f"Your total score was {score}")
