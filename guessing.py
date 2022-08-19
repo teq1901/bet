@@ -1,5 +1,20 @@
 import random
 
+def valid_guess(prompt):
+    valid = False
+    guess= input(prompt)
+    while not valid:
+        if guess.isnumeric():
+            guess = int (guess)
+            if guess>= 1 and guess <= max: #check if number is in range
+                valid = True 
+            else:
+                guess= input(f"invalid number entered. Number must be between 1 and {max}: ")   
+        else: 
+            guess = input (f"only numbers between 1 and {max} is allowed. Please enter a number: ")
+    return guess
+
+    #this code starts here
 repeat = "y"
 rounds = input("How many rounds do you want to play? ")
 valid_rounds = False
@@ -22,27 +37,16 @@ for i in range(rounds):
     print(f"Round {i+1}")
     #generate a random number
     num = random.randint(1, max)
-    valid = False
-    guess= input(f"Guess a number between 1 and {max}: ")
-    while not valid:
-        if guess.isnumeric():
-            guess = int (guess)
-            if guess>= 1 and guess <= max: #check if number is in range
-                valid = True 
-            else:
-                guess= input(f"invalid number entered. Number must be between 1 and {max}: ")   
-        else: 
-            guess = input (f"only numbers between 1 and {max} is allowed. Please enter a number: ")
     
-
+    guess = valid_guess(f"Guess a number between 1 and {max}: ")
     
     while guess != num:
 
         if guess > num:
-            guess = int(input(f"try again, guess lower: "))
+            guess = valid_guess(f"try again, guess lower: ")
             score -=2
         else:
-            guess = int(input(f"try again guess higher: "))
+            guess = valid_guess(f"try again guess higher: ")
             score -=2
 
     if guess == num:
